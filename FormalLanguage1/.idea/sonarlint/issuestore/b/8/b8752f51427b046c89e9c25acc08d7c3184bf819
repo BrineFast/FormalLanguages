@@ -1,0 +1,13 @@
+
+ysquid:S2159B"VRemove this call to "equals"; comparisons between unrelated types always return false.(Â©œ¤øÿÿÿÿ8ÌØóÙŒ.
+Psquid:S1481#"3Remove this unused "requiredString" local variable.(ıÍ™8‘şüÙŒ.
+Jsquid:S1068",Remove this unused "alphabet" private field.(íºòÖ8—µƒÙŒ.
+:squid:S1643*"Use a StringBuilder instead.(ë€ÿµ8’æ¯ÙŒ.
+Msquid:S1068"*Remove this unused "states" private field.(³Í“üÿÿÿÿ8—µƒÙŒ.
+~squid:UselessImportCheck"NRemove this unused import 'com.sun.org.apache.xpath.internal.operations.Bool'.(™¦èûÿÿÿÿ8³±¦ÙŒ.
+Gsquid:S5411,"*Use the primitive boolean expression here.(î‘İ8ÛÃõÙŒ.
+Xsquid:S1191"5Use classes from the Java API instead of Sun classes.(™¦èûÿÿÿÿ8³±¦ÙŒ.
+`squid:S1854."BRemove this useless assignment to local variable "requiredString".(¯È„ş8‘şüÙŒ.
+Gsquid:S5411%"*Use the primitive boolean expression here.(¨—ï8³±¦ÙŒ.
+ysquid:S2159A"VRemove this call to "equals"; comparisons between unrelated types always return false.(¥Çöüÿÿÿÿ8ÌØóÙŒ.
+~squid:S1450"[Remove the "currentState" field and declare it as a local variable in the relevant methods.(ò¤——ùÿÿÿÿ8€¡—ÚŒ.
