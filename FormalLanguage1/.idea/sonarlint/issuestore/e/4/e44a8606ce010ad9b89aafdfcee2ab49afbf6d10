@@ -1,10 +1,0 @@
-
-dsquid:S1075"ARefactor your code to get this URI from a customizable parameter.(ÎÙùşÿÿÿÿ8ÎÓ¤ÚŒ.
-jsquid:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(âğÀ®8ø¢°ÚŒ.
-?squid:S1643"Use a StringBuilder instead.(ä¼Áûøÿÿÿÿ8›ï¯ÚŒ.
-[
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÚˆÍƒÿÿÿÿÿ8†Á¾ÚŒ.
-[
-squid:S106"9Replace this use of System.out or System.err by a logger.(Ò¹Öøÿÿÿÿ8ì©¼ÚŒ.
-[
-squid:S106 "9Replace this use of System.out or System.err by a logger.(Ïßõüÿÿÿÿ8šÀ¸ÚŒ.

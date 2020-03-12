@@ -1,0 +1,18 @@
+{
+  "alphabet": ["a", "b"],
+  "states": ["q1","q2","q3","q4"],
+  "start": ["q1"],
+  "final": ["q4"],
+  "matrix": [
+    {
+      "from": "q0",
+      "to": ["q1"],
+      "by": "a"
+    },
+    {
+      "from": "q1",
+      "to": ["q2"],
+      "by": "b"
+    }
+    ]
+}
