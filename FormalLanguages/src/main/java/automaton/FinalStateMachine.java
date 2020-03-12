@@ -34,17 +34,19 @@ public class FinalStateMachine {
      * Converts the automaton to the next state if it meets the validation requirements.
      * @param signal
      */
-    private void transition(String signal) {
+    private boolean transition(String signal) {
+        if (!alphabet.contains(signal))
+            return false;
         Set<String> nextState = new HashSet<>();
         for (String state : currentStates) {
             for (Triplet triplet : transitions) {
-                if(triplet.by.equals(signal)
-                        && triplet.from.equals(state)
-                        && alphabet.contains(triplet.by.toString()))
-                    nextState.add(triplet.from);
+                if (triplet.by.equals(signal) && triplet.from.equals(state)) {
+                        nextState.add(triplet.from);
+                }
             }
         }
         currentStates = nextState;
+        return true;
     }
 
     /**
@@ -60,11 +62,13 @@ public class FinalStateMachine {
         int subStringLength = 0;
         boolean isSubstring = false;
         while (startPosition != initialString.length()) {
-            transition(initialString.substring(startPosition, startPosition + 1));
-            for (String state : currentStates) {
-                if (finalStates.contains(state))
-                    return new Pair<>(isSubstring, subStringLength);
-            }
+            if (transition(initialString.substring(startPosition, startPosition + 1)))
+                for (String state : currentStates) {
+                    if (finalStates.contains(state))
+                        return new Pair<>(isSubstring, subStringLength);
+                }
+            else
+                return new Pair<>(false, subStringLength);
             subStringLength++;
             isSubstring = true;
             startPosition++;
