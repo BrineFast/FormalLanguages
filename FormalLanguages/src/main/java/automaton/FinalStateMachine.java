@@ -1,7 +1,5 @@
 package automaton;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import util.Pair;
@@ -17,8 +15,6 @@ import java.util.Set;
  */
 
 @Data
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
 public class FinalStateMachine {
 
@@ -30,6 +26,20 @@ public class FinalStateMachine {
     private Set<String> currentStates;
 
     /**
+     * Default current state setter.
+     */
+    public void setCurrentStates(){
+        currentStates = startStates;
+    }
+
+    /**
+     * Returns the machine to its initial state.
+     */
+    public void resetMachine() {
+        currentStates = startStates;
+    }
+
+    /**
      * Transition function.
      * Converts the automaton to the next state if it meets the validation requirements.
      * @param signal
@@ -38,14 +48,13 @@ public class FinalStateMachine {
         if (!alphabet.contains(signal))
             return false;
         Set<String> nextState = new HashSet<>();
-        for (String state : currentStates) {
-            for (Triplet triplet : transitions) {
-                if (triplet.by.equals(signal) && triplet.from.equals(state)) {
-                        nextState.add(triplet.from);
-                }
-            }
-        }
+        for (String state : currentStates)
+            for (Triplet triplet : transitions)
+                if (triplet.by.equals(signal) && triplet.from.equals(state))
+                        nextState.addAll(triplet.to);
         currentStates = nextState;
+        if (currentStates.size() == 0)
+            return false;
         return true;
     }
 
@@ -57,21 +66,27 @@ public class FinalStateMachine {
      * @return
      */
     public Pair<Boolean, Integer> maxString(String initialString, int startPosition) {
-        if (startPosition >= initialString.length())
+        if (startPosition >= initialString.length()) {
             return new Pair<>(false, 0);
+        }
         int subStringLength = 0;
         boolean isSubstring = false;
         while (startPosition != initialString.length()) {
-            if (transition(initialString.substring(startPosition, startPosition + 1)))
+            if (transition(initialString.substring(startPosition, startPosition + 1))) {
+                subStringLength++;
+                isSubstring = true;
+                startPosition++;
                 for (String state : currentStates) {
-                    if (finalStates.contains(state))
+                    if (finalStates.contains(state)) {
+                        resetMachine();
                         return new Pair<>(isSubstring, subStringLength);
+                    }
                 }
-            else
+            }
+            else {
+                resetMachine();
                 return new Pair<>(false, subStringLength);
-            subStringLength++;
-            isSubstring = true;
-            startPosition++;
+            }
         }
         return new Pair<>(isSubstring, subStringLength);
     }
