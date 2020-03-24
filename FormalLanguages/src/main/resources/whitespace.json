@@ -1,0 +1,29 @@
+[
+{
+  "alphabet": [
+    " "
+  ],
+  "states": [
+    "q0",
+    "q1"
+  ],
+  "startStates": [
+    "q0"
+  ],
+  "finalStates": [
+    "q1"
+  ],
+  "transitions": [
+    {
+      "from": "q0",
+      "to": ["q1"],
+      "by": " "
+    },
+    {
+      "from": "q1",
+      "to": ["q2"],
+      "by": " "
+      }
+    ]
+  }
+ ]
