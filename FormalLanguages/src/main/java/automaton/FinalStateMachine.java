@@ -25,14 +25,7 @@ public class FinalStateMachine {
     private List<Triplet> transitions;
     private Set<String> currentStates;
 
-    /**
-     * Default current state setter.
-     */
-    public void setCurrentStates(){
-        currentStates = startStates;
-    }
-
-    /**
+    /** 
      * Returns the machine to its initial state.
      */
     public void resetMachine() {

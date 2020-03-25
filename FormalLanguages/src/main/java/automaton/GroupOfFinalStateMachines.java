@@ -39,9 +39,10 @@ public class GroupOfFinalStateMachines {
         }
         reader.close();
         ObjectMapper objectMapper = new ObjectMapper();
-        GroupOfFinalStateMachines group = new GroupOfFinalStateMachines(objectMapper.readValue(input, new TypeReference<List<FinalStateMachine>>(){}), file.getName().substring(0,file.getName().length() - 5));
+        GroupOfFinalStateMachines group =
+                new GroupOfFinalStateMachines(objectMapper.readValue(input, new TypeReference<List<FinalStateMachine>>(){}), file.getName().substring(0,file.getName().length() - 5));
         for (int i = 0; i < group.getFinalStateMachineList().size(); i++){
-            group.getFinalStateMachineList().get(i).setCurrentStates();
+            group.getFinalStateMachineList().get(i).resetMachine();
         }
         return group;
     }
