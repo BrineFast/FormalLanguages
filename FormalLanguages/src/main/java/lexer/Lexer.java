@@ -15,6 +15,7 @@ public class Lexer {
      * @param group
      * @return
      */
+    //TODO:machine priority
     public static List<Token> tokenize(String inputString, List<GroupOfFinalStateMachines> group) {
         List<Token> tokens = new ArrayList<>();
         int pos = 0;

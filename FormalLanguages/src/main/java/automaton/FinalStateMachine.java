@@ -18,6 +18,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class FinalStateMachine {
 
+    private Integer priority;
     private Set<String> alphabet;
     private Set<String> states;
     private Set<String> startStates;
@@ -25,7 +26,7 @@ public class FinalStateMachine {
     private List<Triplet> transitions;
     private Set<String> currentStates;
 
-    /** 
+    /**
      * Returns the machine to its initial state.
      */
     public void resetMachine() {
@@ -46,9 +47,7 @@ public class FinalStateMachine {
                 if (triplet.by.equals(signal) && triplet.from.equals(state))
                         nextState.addAll(triplet.to);
         currentStates = nextState;
-        if (currentStates.size() == 0)
-            return false;
-        return true;
+        return !currentStates.isEmpty();
     }
 
     /**
@@ -59,7 +58,7 @@ public class FinalStateMachine {
      * @return
      */
     public Pair<Boolean, Integer> maxString(String initialString, int startPosition) {
-        if (startPosition >= initialString.length()) {
+        if (startPosition >= initialString.length() || startPosition < 0) {
             return new Pair<>(false, 0);
         }
         int subStringLength = 0;

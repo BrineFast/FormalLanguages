@@ -11,7 +11,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Group of all machines with the same type.
@@ -55,13 +58,19 @@ public class GroupOfFinalStateMachines {
      * @return
      */
     public static Token maxString(String inputString, List<GroupOfFinalStateMachines> group, int startPosition) {
+        List<Token> tokens = new ArrayList<>();
+        Integer currentPriority = -1;
         for (GroupOfFinalStateMachines group1 : group) {
             for (FinalStateMachine fsm : group1.getFinalStateMachineList()) {
                 Pair<Boolean, Integer> result = fsm.maxString(inputString, startPosition);
-                if (result.getKey())
-                    return new Token( group1.getType(), inputString.substring(startPosition, startPosition + result.getValue()), "good");
+                if (result.getKey() && fsm.getPriority() > currentPriority) {
+                    tokens.add(new Token(group1.getType(), inputString.substring(startPosition, startPosition + result.getValue()), "good"));
+                    currentPriority = fsm.getPriority();
+                }
             }
         }
+        if (!tokens.isEmpty())
+            return tokens.get(tokens.size()-1);
         return null;
     }
 
