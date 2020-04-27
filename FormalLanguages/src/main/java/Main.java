@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static String JSON_INPUT_DIRECTIVE = "F:\\FormalLanguages\\src\\main\\resources\\group.json";
+    public static String JSON_INPUT_DIRECTIVE = "F:\\FormalLanguages\\src\\main\\resources\\group.json";
 
     public static void main(String[] args) throws IOException {
 

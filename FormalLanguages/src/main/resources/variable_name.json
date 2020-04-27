@@ -1,40 +1,6 @@
 [
-    {
-      "priority": 2,
-    "alphabet": ["b", "e","g","i","n"],
-    "states": ["q1","q2","q3","q4","q5"],
-    "startStates": ["q0"],
-    "finalStates": ["q5"],
-    "transitions": [
-      {
-        "from": "q0",
-        "to": ["q1"],
-        "by": "b"
-        },
-        {
-          "from": "q1",
-          "to": ["q2"],
-          "by": "e"
-        },
-        {
-        "from": "q2",
-        "to": ["q3"],
-        "by": "g"
-      },
-      {
-        "from": "q3",
-        "to": ["q4"],
-        "by": "i"
-      },
-      {
-        "from": "q4",
-        "to": ["q5"],
-        "by": "n"
-      }
-      ]
-    },
   {
-    "priority": 2,
+    "priority": 1,
     "alphabet": ["w", "h","i","l","e"],
     "states": ["q1","q2","q3","q4","q5"],
     "startStates": ["q0"],
@@ -66,5 +32,39 @@
         "by": "e"
       }
     ]
+  },
+  {
+    "priority": 1,
+    "alphabet": ["k", "a","p","p","a"],
+    "states": ["q1","q2","q3","q4","q5"],
+    "startStates": ["q0"],
+    "finalStates": ["q5"],
+    "transitions": [
+      {
+        "from": "q0",
+        "to": ["q1"],
+        "by": "k"
+      },
+      {
+        "from": "q1",
+        "to": ["q2"],
+        "by": "a"
+      },
+      {
+        "from": "q2",
+        "to": ["q3"],
+        "by": "p"
+      },
+      {
+        "from": "q3",
+        "to": ["q4"],
+        "by": "p"
+      },
+      {
+        "from": "q4",
+        "to": ["q5"],
+        "by": "a"
+      }
+    ]
   }
-  ]
+]
