@@ -1,10 +1,10 @@
 [
   {
     "priority": 1,
-    "alphabet": ["w", "h","i","l","e"],
-    "states": ["q1","q2","q3","q4","q5"],
+    "alphabet": ["w", "h","i","l","e", "b"],
+    "states": ["q1","q2","q3","q4","q5", "q6"],
     "startStates": ["q0"],
-    "finalStates": ["q5"],
+    "finalStates": ["q6"],
     "transitions": [
       {
         "from": "q0",
@@ -30,6 +30,11 @@
         "from": "q4",
         "to": ["q5"],
         "by": "e"
+      },
+      {
+        "from": "q5",
+        "to": ["q6"],
+        "by": "b"
       }
     ]
   },

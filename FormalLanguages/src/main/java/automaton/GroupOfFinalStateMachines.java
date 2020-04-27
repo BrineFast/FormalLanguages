@@ -59,12 +59,14 @@ public class GroupOfFinalStateMachines {
      */
     public static Token maxString(String inputString, List<GroupOfFinalStateMachines> group, int startPosition) {
         List<Token> tokens = new ArrayList<>();
-        Integer currentPriority = -1;
+        int currentPriority = -1;
+        int currentLength = 0;
         for (GroupOfFinalStateMachines group1 : group) {
             for (FinalStateMachine fsm : group1.getFinalStateMachineList()) {
                 Pair<Boolean, Integer> result = fsm.maxString(inputString, startPosition);
-                if (result.getKey() && fsm.getPriority() > currentPriority) {
+                if (result.getKey() && (result.getValue() >= currentLength || (result.getValue() < currentLength && fsm.getPriority() > currentPriority))) {
                     tokens.add(new Token(group1.getType(), inputString.substring(startPosition, startPosition + result.getValue()), "good"));
+                    currentLength = result.getValue();
                     currentPriority = fsm.getPriority();
                 }
             }

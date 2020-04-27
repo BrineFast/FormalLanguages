@@ -19,19 +19,21 @@ public class Tests {
 
     /**
      * Enters a keyword and a space.
-     * And `while` is also represented as a variable,
+     * And `whileb` is also represented as a variable,
      * but it has priority 1 in the variable, and priority 2 in the keyword.
      */
     @Test
     public void positiveLexerTest() throws IOException {
 
         List<GroupOfFinalStateMachines> group = GroupDeserializer.deserialize(file);
-        String inputString= "while begin";
+        String inputString= "while begin whileb";
         List<Token> tokens = Lexer.tokenize(inputString, group);
 
         Assertions.assertEquals("keyword", tokens.get(0).getType());
         Assertions.assertEquals("whitespace", tokens.get(1).getType());
         Assertions.assertEquals("keyword", tokens.get(2).getType());
+        Assertions.assertEquals("whitespace", tokens.get(3).getType());
+        Assertions.assertEquals("variable_name", tokens.get(4).getType());
     }
 
     /**
@@ -48,4 +50,5 @@ public class Tests {
         Assertions.assertEquals(true, tokens.isEmpty());
 
     }
+
 }
