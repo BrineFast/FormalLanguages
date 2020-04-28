@@ -1,5 +1,4 @@
 import automaton.GroupOfFinalStateMachines;
-import automaton.FinalStateMachine;
 import deserializers.GroupDeserializer;
 import lexer.Lexer;
 
